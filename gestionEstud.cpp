@@ -4,7 +4,7 @@ using namespace std;
 struct nodo {
     string nombreEstudiante;
     int codigoEstudiante;
-    float notaEstudiante;
+    double notaEstudiante;
     nodo *sig;
 };
 
@@ -52,8 +52,8 @@ void mostrarListaEstudiante(){
      estudiante=cab;
     while(estudiante!=NULL){
         cout<<"Primer nombre del estudiante: "<<estudiante->nombreEstudiante<<endl;
-        cout<<"codigo: "<<codigo->codigoEstudiante<<endl;
-        cout<<"nota: "<<nota->notaEstudiante<<endl;
+        cout<<"codigo de estudiante: "<<codigo->codigoEstudiante<<endl;
+        cout<<"nota de estudiante: "<<nota->notaEstudiante<<endl;
 
         estudiante = estudiante->sig;
 
@@ -96,7 +96,7 @@ void ordenarPorNota(){
         nota2 = nota2->sig;
     }
 }
-void encontrarNotaMayor(){
+void obtenerNotaMayor(){
     if(!cab){
         cout<<"El estudiante no esta registrado"<<endl;
     }
@@ -109,7 +109,7 @@ void encontrarNotaMayor(){
     nota=nota->sig;    
 }
 
-void encontrarNotaMenor(){
+void obtenerNotaMenor(){
     if(!cab){
         cout<<"El estudiante no esta registrado"<<endl;
     }
@@ -121,10 +121,11 @@ void encontrarNotaMenor(){
     }
     nota=nota->sig;    
 }
-void calcularPromedioEstudiante(){
+void obtenerPromedioEstudiante(){
 
 
 }
+
 
 int main(){
     int opcion;
@@ -148,15 +149,15 @@ int main(){
             cout<< "Lista ordenada por nota"<<endl;
         break;
          case 5:
-            encontrarNotaMayor();
+            obtenerNotaMayor();
             cout<< "La nota mayoe es: "<<endl;
         break;   
         case 6:
-            encontrarNotaMenor();
+            obtenerNotaMenor();
             cout<< "La nota menor es: "<<endl;
         break;   
         case 7:
-            calcularPromedioEstudiante();
+            obtenerPromedioEstudiante();
             cout<< "El promedio del estudiante es: "<<endl;
         break;    
         case 8:
