@@ -48,15 +48,30 @@ void mostrarListaEstudiante(){
 
 void ordenarLista(){
 
-    int temporal;
+    int temporalCodigo;
     aux2 = cab;
     while(aux2->sig!=NULL){
         aux1 = cab;
         while(aux1->sig!=NULL){
             if(aux1->codigoEstudiante > aux1->sig->codigoEstudiante){
-                temporal = aux1->codigoEstudiante;
+                temporalCodigo = aux1->codigoEstudiante;
                 aux1->codigoEstudiante = aux1->sig->codigoEstudiante;
-                aux1->sig->codigoEstudiante = temporal;
+                aux1->sig->codigoEstudiante = temporalCodigo;
+            }
+            aux1 = aux1->sig;
+        }
+        aux2 = aux2->sig;
+    }
+    
+    double temporalNota;
+    aux2 = cab;
+    while(aux2->sig!=NULL){
+        aux1 = cab;
+        while(aux1->sig!=NULL){
+            if(aux1->notaEstudiante > aux1->sig->notaEstudiante){
+                temporalNota = aux1->notaEstudiante;
+                aux1->notaEstudiante = aux1->sig->notaEstudiante;
+                aux1->sig->notaEstudiante = temporalNota;
             }
             aux1 = aux1->sig;
         }
@@ -129,7 +144,7 @@ void calcularPromedioEstudiante(){
 int main(){
     int opcion;
     do {
-        cout<<"Menu"<<endl<<"1. Resgistrar datos del estudiante"<<endl<<"2. Mostrar estudiantes en la lista"<<endl<<"3. ordenar lista"<<endl<<"4. Obtener nota mayor"<<endl<<"5. Obtener nota menor"<<endl<<"6.Obtener promedio del estudiante"<<endl<<"7. Salir del programa"<<endl;
+        cout<<"Menu"<<endl<<"1. Resgistrar datos del estudiante"<<endl<<"2. Mostrar estudiantes en la lista"<<endl<<"3. ordenar lista"<<endl<<"4. Encontrar nota mayor"<<endl<<"5. Encontrar nota menor"<<endl<<"6. Calcular promedio del estudiante"<<endl<<"7. Salir del programa"<<endl;
         cin>>opcion;
         switch (opcion)
         {
@@ -145,18 +160,18 @@ int main(){
         break;
          case 4:
             encontrarNotaMayor();
-            cout<< "La nota mayoe es: "<<endl;
+            cout<< "Nota mayor: "<<endl;
         break;   
         case 5:
             encontrarNotaMenor();
-            cout<< "La nota menor es: "<<endl;
+            cout<< "Nota menor: "<<endl;
         break;   
         case 6:
             calcularPromedioEstudiante();
-            cout<< "El promedio del estudiante es: "<<endl;
+            cout<< "Promedio del estudiante: "<<endl;
         break;    
         case 7:
-            cout << "saliendo del programa"<<endl;
+            cout << "Saliendo del programa"<<endl;
         break;
         }
     }while(opcion!=7);
